@@ -1,0 +1,56 @@
+<html>
+    
+<head>
+    <title>EAN</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <script>
+        "use strict";
+
+    function Prüfziffer() {
+        var vInput=document.getElementById("idZahl").value;        
+        var a= [1,3,1,3,1,3,1,3,1,3,1,3];
+        var count=0;
+        var vPrüfsumme;
+        var vLösung;
+        var vPrüfziffer; 
+        var vAusgabe="";
+        var vText; 
+
+        while (count<11) {
+        vPrüfsumme = vInput [count]* a [count];
+        vLösung = vLösung  + vPrüfsumme;
+
+        count++;
+    }                           
+
+         vPrüfziffer=10-(vLösung%10);
+
+        if (vPrüfziffer==10) {
+            vPrüfziffer=0;                 
+        }
+
+        if ( vPrüfziffer==vInput[12]) {vText="Gültig"}
+        else {vText="Ungültig"}
+        vAusgabe=vAusgabe + vText;
+        document.getElementById("idAusgabe").innerHTML = vAusgabe;
+    }
+          
+      
+        
+    </script>
+
+
+<body>
+    <h1>Prüfziffer berechnen</h1></br> 
+    <input id="idZahl" type="text" size="" value="" maxlength=""> 
+    </br> 
+
+   <button onClick="Prüfziffer();">Berechne die Prüfziffer</button>
+   </br>
+
+   <div id="idAusgabe"></div>
+</body>
+
+</html>
