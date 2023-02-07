@@ -9,17 +9,18 @@
         "use strict";
 
     function Prüfziffer() {
-        var vInput=document.getElementById("idZahl").value;        
+        var vInput=document.getElementById("1").value;        
         var a= [1,3,1,3,1,3,1,3,1,3,1,3];
         var count=0;
         var vPrüfsumme;
-        var vLösung;
+        var vLösung=0;
         var vPrüfziffer; 
         var vAusgabe="";
+        var vPrüfen;
         var vText; 
 
         while (count<11) {
-        vPrüfsumme = vInput [count]* a [count];
+        vPrüfsumme = a [count]* vInput [count];
         vLösung = vLösung  + vPrüfsumme;
 
         count++;
@@ -27,12 +28,12 @@
 
          vPrüfziffer=10-(vLösung%10);
 
-        if (vPrüfziffer==10) {
-            vPrüfziffer=0;                 
+        if (vPrüfen==10) {
+            vPrüfen=0;                 
         }
 
-        if ( vPrüfziffer==vInput[12]) {vText="Gültig"}
-        else {vText="Ungültig"}
+        if ( vPrüfziffer==vInput[12]) {vText="gültig"}
+        else {vText="ungültig"}
         vAusgabe=vAusgabe + vText;
         document.getElementById("idAusgabe").innerHTML = vAusgabe;
     }
@@ -44,7 +45,7 @@
 
 <body>
     <h1>Prüfziffer berechnen</h1></br> 
-    <input id="idZahl" type="text" size="" value="" maxlength=""> 
+    <input id="1" type="text" size="" value="" maxlength=""> 
     </br> 
 
    <button onClick="Prüfziffer();">Berechne die Prüfziffer</button>
